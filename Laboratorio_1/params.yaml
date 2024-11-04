@@ -1,0 +1,15 @@
+preprocessing:
+  numeric_features: ['feature1', 'feature2']  # Cambia por los nombres reales de tus columnas numéricas
+  categorical_features: ['feature3', 'feature4']  # Cambia por los nombres reales de tus columnas categóricas
+
+split:
+  test_size: 0.2
+  random_state: 42
+
+target: 'target_column'  # Cambia esto al nombre de la columna objetivo
+
+random_forest:
+  n_estimators: 100
+
+gradient_boosting:
+  n_estimators: 100
