@@ -1,0 +1,26 @@
+# Inicializa DVC en el proyecto
+dvc init
+
+# Agrega un almacenamiento remoto predeterminado en DVC (ejemplo con Google Drive)
+dvc remote add -d myremote gdrive://<GDRIVE_FOLDER_ID>
+
+# Versiona el dataset principal
+dvc add data/data.csv
+
+# Agrega el archivo de control .dvc y el .gitignore a Git
+git add data/data.csv.dvc .gitignore
+git commit -m "Agregar dataset principal al control de versiones de DVC"
+
+dvc repro
+
+git add dvc.yaml dvc.lock metrics.json models/best_model.pkl
+git commit -m "Pipeline de DVC completo con preprocesamiento, entrenamiento y evaluación"
+
+dvc push
+
+git clone <URL_DEL_REPOSITORIO>
+cd <NOMBRE_DEL_REPOSITORIO>
+
+dvc pull
+
+dvc repro
